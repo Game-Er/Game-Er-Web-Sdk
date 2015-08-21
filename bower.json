@@ -1,0 +1,39 @@
+{
+  "name": "gameup-sdk",
+  "version": "0.5.0-dev",
+  "homepage": "https://github.com/gameup-io/gameup-web-sdk",
+  "description": "Web SDK for the GameUp service.",
+  "main": "dist/gameup.js",
+  "moduleType": [
+    "node"
+  ],
+  "keywords": [
+    "gaming",
+    "cloud gaming",
+    "mbaas",
+    "gaming service",
+    "gameup"
+  ],
+  "authors": [
+    "Andrei Mihu <andrei@gameup.io>",
+    "Chris Molozian <chris@gameup.io>",
+    "Mo Firouz <mo@gameup.io>"
+  ],
+  "license": "Apache 2",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "superagent": "0.21.0"
+  },
+  "devDependencies": {
+    "qunit": "~1.17.1"
+  },
+  "resolutions": {
+    "superagent": "0.21.0"
+  }
+}

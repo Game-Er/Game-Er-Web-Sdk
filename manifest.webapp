@@ -1,0 +1,23 @@
+{
+  "version": "1.0.0",
+  "name": "gameup-firefoxos",
+  "description": "GameUp Firefox OS Test Application",
+  "launch_path": "/test/gameup-popup-test.html",
+  "icons": {
+    "128": "icon.png"
+  },
+  "developer": {
+    "name": "GameUp",
+    "url": "https://gameup.io"
+  },
+  "type": "privileged",
+  "permissions": {
+    "systemXHR": {
+      "description": "Required to load remote content"
+    }
+  },
+  "installs_allowed_from": [
+    "*"
+  ],
+  "default_locale": "en"
+}

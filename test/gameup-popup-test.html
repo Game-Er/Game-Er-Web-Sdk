@@ -1,0 +1,53 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>GameUp Web SDK Popup Tests</title>
+  <link rel="stylesheet" href="../bower_components/qunit/qunit/qunit.css">
+  <script src="../bower_components/qunit/qunit/qunit.js"></script>
+  <script src="../bower_components/superagent/superagent.js"></script>
+</head>
+<body>
+  <div id="qunit"></div>
+  <div id="qunit-fixture"></div>
+  <script src="../build/js/gameup.js"></script>
+  <script>
+  QUnit.config.reorder = false;
+
+  // TODO move API key to an Env Var
+  var client = new GameUp.Client("6fb004d4289748199cb858ab0905f657");
+
+  function errorAssert(assert, done) {
+    return function(status, response) {
+      var message = {};
+      if (!!response) {
+        message = response.message;
+      }
+      assert.push(status > 0 && status < 400, status, 200, status + ": " + JSON.stringify(message));
+      done();
+    };
+  };
+
+  QUnit.test('Facebook Popup Login', function(assert) {
+    var done = assert.async();
+    client.loginFacebook({
+      success: function(status, data) {
+        assert.notEqual(data.length, 0, "Successfully logged in through Facebook: " + data);
+        done();
+      },
+      error: errorAssert(assert, done)
+    });
+  });
+
+  QUnit.test('GameUp Popup Login', function(assert) {
+    var done = assert.async();
+    client.loginGameUp({
+      success: function(status, data) {
+        assert.notEqual(data.length, 0, "Successfully logged in through GameUp: " + data);
+        done();
+      },
+      error: errorAssert(assert, done)
+    });
+  });
+  </script>
+</body>
+</html>
